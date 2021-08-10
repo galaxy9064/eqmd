@@ -1,0 +1,25 @@
+spring:
+  freemarker:
+    request-context-attribute: req  #req访问request
+    suffix: .ftl  #后缀名
+    content-type: text/html
+    enabled: true
+    cache: false #缓存配置
+    template-loader-path: classpath:/templates/ #模板加载路径 按需配置
+    charset: UTF-8 #编码格式
+    settings:
+      number_format: '0.##'   #数字格式化，无小数点
+
+server:
+  port: 8090      
+
+#文件路径
+file.path: /usr/local/jopens/utils
+#SEED脚本文件路径+名称（秒）
+seed.file.command: sh ${file.path}/AutoExportSeedVolume.sh -{0} "{1}" {2}
+#SAC脚本文件路径+名称
+sac.file.command: sh ${file.path}/Event2SAC.sh ./seed/{0}.seed sac
+
+
+
+
